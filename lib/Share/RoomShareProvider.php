@@ -752,6 +752,7 @@ class RoomShareProvider implements IShareProvider {
 			)
 				->selectAlias('st.id', 'storage_string_id')
 				->from('share', 's')
+				->orderBy('id')
 				->leftJoin('s', 'filecache', 'f', $qb->expr()->eq('s.file_source', 'f.fileid'))
 				->leftJoin('f', 'storages', 'st', $qb->expr()->eq('f.storage', 'st.numeric_id'));
 
